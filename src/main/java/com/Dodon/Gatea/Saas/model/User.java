@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -28,6 +29,17 @@ public class User implements Serializable{
 	@Column
 	@NotBlank
 	private String lastName;
+	
+	 @ManyToMany
+	    @JoinTable( 
+	        name = "users_roles", 
+	        joinColumns = @JoinColumn(
+	          name = "user_id", referencedColumnName = "id"), 
+	        inverseJoinColumns = @JoinColumn(
+	          name = "role_id", referencedColumnName = "id")
+	        ) 
+	private Collection<Role> roles;
+	
 	public Long getId() {
 		return id;
 	}
