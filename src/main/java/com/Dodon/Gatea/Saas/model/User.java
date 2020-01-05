@@ -1,6 +1,7 @@
 package com.Dodon.Gatea.Saas.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,7 +12,6 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-
 @Entity
 @Table(name = "users")
 //@DiscriminatorColumn(name="REF_TYPE")
@@ -31,21 +31,12 @@ public class User implements Serializable{
     @NotEmpty
     private String password;
 	@Column
-	@NotBlank
 	private String firstName;
 	@Column
-	@NotBlank
 	private String lastName;
-	
-	 @ManyToMany
-	    @JoinTable( 
-	        name = "users_roles", 
-	        joinColumns = @JoinColumn(
-	          name = "user_id", referencedColumnName = "id"), 
-	        inverseJoinColumns = @JoinColumn(
-	          name = "role_id", referencedColumnName = "id")
-	        ) 
-	private Collection<Role> roles;
+	@Column
+    @Enumerated(EnumType.STRING)
+	private Role role;
 	
 	public Long getId() {
 		return id;
@@ -77,11 +68,11 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Collection<Role> getRoles() {
-		return roles;
+	public Role getRoles() {
+		return role;
 	}
-	public void setRoles(Collection<Role> roles) {
-		this.roles = roles;
+	public void setRoles(Role role) {
+		this.role = role;
 	}
 	
 
