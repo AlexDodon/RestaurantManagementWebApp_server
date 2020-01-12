@@ -2,6 +2,7 @@ package com.Dodon.Gatea.Saas.model;
 
 import java.io.Serializable;
 
+
 public class JwtRequest implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;
@@ -10,7 +11,7 @@ public class JwtRequest implements Serializable {
 
 	private String password;
 	
-	private Role role;
+	private String role;
 
 	//need default constructor for JSON Parsing
 
@@ -53,11 +54,11 @@ public class JwtRequest implements Serializable {
 
 	}
 	
-	public Role getRole() {
+	public String getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 

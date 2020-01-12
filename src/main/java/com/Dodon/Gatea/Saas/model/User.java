@@ -22,6 +22,7 @@ public class User implements Serializable{
 	 */
 	private static final long serialVersionUID = -1032502090400525780L;
 	@Id
+	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
@@ -35,8 +36,7 @@ public class User implements Serializable{
 	@Column
 	private String lastName;
 	@Column
-    @Enumerated(EnumType.STRING)
-	private Role role;
+	private String role;
 	
 	public Long getId() {
 		return id;
@@ -68,10 +68,10 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Role getRoles() {
+	public String getRoles() {
 		return role;
 	}
-	public void setRoles(Role role) {
+	public void setRoles(String role) {
 		this.role = role;
 	}
 	
