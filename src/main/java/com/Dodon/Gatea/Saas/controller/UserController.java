@@ -39,6 +39,7 @@ public class UserController {
 	    user.setLastName(userRequest.getLastName());
 	    user.setUsername(userRequest.getUsername());
 	    user.setPassword(userRequest.getPassword());
+	    user.setRoles(userRequest.getRoles());
 	    User updatedUser = userRepository.save(user);
 	    return updatedUser;
 	}
