@@ -2,6 +2,7 @@ package com.Dodon.Gatea.Saas.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @MappedSuperclass
 public abstract class AbstractItem {
@@ -11,13 +12,18 @@ public abstract class AbstractItem {
 	private Long id;
 	
 	@Column
-	@NotBlank
+    @NotEmpty
 	private String name;
 	
 	@Column
-	@NotBlank
 	private int quantity;
-	
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

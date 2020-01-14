@@ -3,6 +3,8 @@ package com.Dodon.Gatea.Saas.controller;
 import com.Dodon.Gatea.Saas.exception.ResourceNotFoundException;
 import com.Dodon.Gatea.Saas.model.StockItem;
 import com.Dodon.Gatea.Saas.repository.StockItemRepository;
+import com.Dodon.Gatea.Saas.repository.SupplierRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

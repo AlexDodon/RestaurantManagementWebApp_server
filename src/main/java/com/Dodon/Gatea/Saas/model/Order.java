@@ -22,7 +22,16 @@ public class Order {
 		this.setWaiter(waiter);
 		this.setOrderItems(list);
 	}
+	
+	public Order() {}
 
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public List<MenuItem> getOrderItems() {
 		return orderItems;
 	}
